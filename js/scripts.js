@@ -1,16 +1,3 @@
-//welcome the user
-//alert("Welcome to Quiz Ninja!")
-
-// let question = "What is Superman's real name?"
-// let answer = prompt(question)
-// alert("You answered " + answer)
-
-//nested array with questions and answers
-// let quiz = [
-//     ["What is Superman's real name?", "Clark Kent"],
-//     ["What is Wonderwoman's real name?", "Diana Prince"],
-//     ["What is Batman's real name?", "Bruce Wayne"]
-// ];
 
 //change the variable quiz to an object instead of array - above code
 let quiz = {
@@ -23,6 +10,10 @@ let quiz = {
         {"question": "Wonder Woman", "answer": "Diana Prince"}
     ]
 }
+//DOM references//
+let $question = document.getElementById("question")
+let $score = document.getElementById("score")
+let $feedback = document.getElementById("feedback")
 
 //initialize a variable called score to keep track of the correct answers
 let score = 0;
