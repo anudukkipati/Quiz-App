@@ -25,14 +25,16 @@ function update(element, content, klass) {
     }
 }
 
-//initialize a variable called score to keep track of the correct answers
-let score = 0;
 
 //invoke function play before the function as it will be hoisted
 play(quiz);
 
 //function definition
 function play(quiz) {
+    //initialize a variable called score to keep track of the correct answers
+    let score = 0;
+    update($score, score);
+
     //main game loop
 
     //declare variables outside for loop so that all functions will have access to them(let is not hoisted like var)
@@ -48,22 +50,27 @@ function play(quiz) {
     //nested functions
 
     function ask(question) {
-        return prompt(quiz.question + question);
+        //add paragraph element to question section
+        update($question, quiz.question + question);
+        return prompt("Enter your answer:");
     }
 
     function check(answer) {
         //check if answer is correct
         if (answer === quiz.questions[i].answer) {
-            alert("Correct");
+            //add paragraph element to feedback section, "right" (3rd argument in the update function)- is the klass argument for the update function
+            update($feedback, "Correct!", "right");
             //increase score for correct answer
             score++;
+            update($score, score);
         } else {
-            alert("Wrong")
+            update($feedback, "Wrong!", "wrong");//"wrong" (3rd argument in the update function) - is the klass argument for the update function
         }
     }
 
     function gameOver() {
-        alert("Game over, you scored " + score + " points");
+        //updating the question section using "Game over" message to replace the last question asked
+        update($question, "Game over, you scored " + score + " points");
     }
 }
 
