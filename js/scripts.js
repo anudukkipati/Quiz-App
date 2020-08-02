@@ -11,9 +11,19 @@ let quiz = {
     ]
 }
 //DOM references//
-let $question = document.getElementById("question")
-let $score = document.getElementById("score")
-let $feedback = document.getElementById("feedback")
+let $question = document.getElementById("question");
+let $score = document.getElementById("score");
+let $feedback = document.getElementById("feedback");
+
+//add function to update an element on the page
+function update(element, content, klass) {
+    let p = element.firstChild || document.createElement("p");
+    p.textContent = content;
+    element.appendChild(p);
+    if(klass) {
+        p.className = klass;
+    }
+}
 
 //initialize a variable called score to keep track of the correct answers
 let score = 0;
