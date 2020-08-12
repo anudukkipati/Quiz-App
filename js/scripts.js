@@ -25,8 +25,12 @@ function update(element, content, klass) {
     }
 }
 
+//event listeners
+$start.addEventListener('click', function() {play(quiz)}, false)
+
+
 //invoke function play before the function as it will be hoisted
-play(quiz);
+//play(quiz);
 
 //function definition
 function play(quiz) {
