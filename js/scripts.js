@@ -1,4 +1,3 @@
-
 //change the variable quiz to an object instead of array - above code
 let quiz = {
     "name": "Super Hero Name Quiz",
@@ -14,6 +13,7 @@ let quiz = {
 let $question = document.getElementById("question");
 let $score = document.getElementById("score");
 let $feedback = document.getElementById("feedback");
+let $start = document.getElementById("start")
 
 //add function to update an element on the page
 function update(element, content, klass) {
@@ -24,7 +24,6 @@ function update(element, content, klass) {
         p.className = klass;
     }
 }
-
 
 //invoke function play before the function as it will be hoisted
 play(quiz);
@@ -73,4 +72,7 @@ function play(quiz) {
         update($question, "Game over, you scored " + score + " points");
     }
 }
+
+
+
 
