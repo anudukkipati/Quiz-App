@@ -42,16 +42,22 @@ function play(quiz) {
     //main game loop
 
     //declare variables outside for loop so that all functions will have access to them(let is not hoisted like var)
-    let i, question, answer, max;
-    for(i = 0; max = quiz.questions.length, i < max; i++) {
-        question = quiz.questions[i].question;
-        answer = ask(question);
-        check(answer);
-    }
+    // let i, question, answer, max;
+    // for(i = 0; max = quiz.questions.length, i < max; i++) {
+    //     question = quiz.questions[i].question;
+    //     answer = ask(question);
+    //     check(answer);
+    // }
+    let i = 0;
+    chooseQuestion()
     //end of main game loop
     gameOver();
 
     //nested functions
+    function chooseQuestion() {
+        let question = quiz.question[i].question;
+        ask(question);
+    }
 
     function ask(question) {
         //add paragraph element to question section
