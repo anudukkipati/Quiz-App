@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+body {
+  width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  height: 100vh;
+}
+
+html {
+  background: #444444;
+}
 header {
     font: bold 36px/120% Arial, Helvetica, sans-serif;
     background: #333;

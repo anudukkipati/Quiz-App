@@ -94,6 +94,8 @@ function play(quiz) {
     function gameOver() {
         //updating the question section using "Game over" message to replace the last question asked
         update($question, "Game over, you scored " + score + " points");
+        hide($form);
+        show($start);
     }
 }
 
