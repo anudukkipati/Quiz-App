@@ -26,43 +26,44 @@ function update(element, content, klass) {
     }
 }
 
+function hide(element) {
+    element.style.display = "none";
+}
+
+function show(element) {
+    element.style.display = "block";
+}
 //event listeners
 $start.addEventListener('click', function() {play(quiz)}, false)
 
+// hide the form at the start of the game
+hide($form);
 
-//invoke function play before the function as it will be hoisted
-//play(quiz);
 
 //function definition
 function play(quiz) {
     //initialize a variable called score to keep track of the correct answers
     let score = 0;
     update($score, score);
+    // add event listener to form for when it's submitted
+    $form.addEventListener('submit', function(event){
+        event.preventDefault();
+        check($form[0].value);
+    }, false);
 
-    //main game loop
-
-    //declare variables outside for loop so that all functions will have access to them(let is not hoisted like var)
-    // let i, question, answer, max;
-    // for(i = 0; max = quiz.questions.length, i < max; i++) {
-    //     question = quiz.questions[i].question;
-    //     answer = ask(question);
-    //     check(answer);
-    // }
     let i = 0;
     chooseQuestion()
-    //end of main game loop
-    gameOver();
+    //gameOver();
 
     //nested functions
     function chooseQuestion() {
-        let question = quiz.question[i].question;
+        let question = quiz.questions[i].question;
         ask(question);
     }
 
     function ask(question) {
         //add paragraph element to question section
         update($question, quiz.question + question);
-        //return prompt("Enter your answer:");
         $form[0].value = "";
         $form[0].focus();
     }
@@ -77,6 +78,12 @@ function play(quiz) {
             update($score, score);
         } else {
             update($feedback, "Wrong!", "wrong");//"wrong" (3rd argument in the update function) - is the klass argument for the update function
+        }
+        i++;
+        if(i === quiz.questions.length) {
+            gameOver()
+        } else {
+            chooseQuestion()
         }
     }
 
