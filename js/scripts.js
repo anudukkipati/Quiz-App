@@ -45,6 +45,10 @@ function play(quiz) {
     //initialize a variable called score to keep track of the correct answers
     let score = 0;
     update($score, score);
+    // hide button and show form
+    hide($start);
+    show($form);
+
     // add event listener to form for when it's submitted
     $form.addEventListener('submit', function(event){
         event.preventDefault();
