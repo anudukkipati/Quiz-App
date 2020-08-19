@@ -14,6 +14,7 @@ let $question = document.getElementById("question");
 let $score = document.getElementById("score");
 let $feedback = document.getElementById("feedback");
 let $start = document.getElementById("start")
+let $form = document.getElementById("answer")
 
 //add function to update an element on the page
 function update(element, content, klass) {
