@@ -62,7 +62,9 @@ function play(quiz) {
     function ask(question) {
         //add paragraph element to question section
         update($question, quiz.question + question);
-        return prompt("Enter your answer:");
+        //return prompt("Enter your answer:");
+        $form[0].value = "";
+        $form[0].focus();
     }
 
     function check(answer) {
